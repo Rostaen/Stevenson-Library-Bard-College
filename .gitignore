@@ -20,6 +20,7 @@ verify1.php
 verify2.php
 verify-book-purchase-form.php
 verify-writing-appt.php
+adopt-a-book-wp-config.php
 
 # Ignore a specific folder named 'temp'
 archive/

@@ -1,6 +1,6 @@
 <?php
 	require_once("template.php");
-	require_once("rss/rsslib.php");
+	require_once("inc/connect.php");
 
 	$page = new Template();
 	$page->setTitle('Ask a Librarian | Steven Library | Bard College');
@@ -94,7 +94,6 @@
 				<form name="research consultation" id="researchConsult" method="post" action="verify.php">
 					<input type="hidden" value="order:name-rc,topic-rc,availability-rc,dateneeded-rc,Comments-rc" name="sort" />
 					<input type="hidden" value="name-rc,topic-rc,availability-rc,dateneeded-rc,Comments-rc" name="print_config" />
-					<input type="hidden" value="cawley@bard.edu,jhall@bard.edu" name="recipient" />
 					<input type="hidden" value="Schedule a Research Consultation Form - Stevenson Library Web Site" name="subject" />
 					<input type="hidden" value="email,name-rc" name="required" />
 					<input type="hidden" name="cc_visitor" value="0" />

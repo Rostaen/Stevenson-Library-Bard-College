@@ -47,15 +47,7 @@
 
 				try{
 					// Setting up database connection
-					$pdo = new PDO("mysql:host=$Host;dbname=$DBName;",$User,$Pass);
-					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-					// Setting up SQL query for librarian information
-					$queryTarget = 'last'; // Last name
-					$sql = "SELECT * FROM $Table ORDER BY $queryTarget";
-
-					$stmt = $pdo->query($sql);
-					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+					$result = fetchStaffData();
 
 					// If result is true and connection made, output staff cards
 					if($result){
@@ -71,6 +63,7 @@
 							$tempPhone = $phone == '' ? '' : '<br>845.'.$phone;
 							// Concatanating string due to if checks from above
 							$title = $tempTitle.$tempRefLib.$newLocation.$tempPhone;
+							$emailURL = "@bard.edu";
 
 							// Printing staff card
 							echo
@@ -82,7 +75,7 @@
 									<div class=\"col-8\">
 										<div>
 											<h3 class=\"h5 fw-bold\" style=\"margin-bottom: 0px\">".$name."</h3>
-											<small>".$title."<br>".$email."@bard.edu</small>
+											<small>".$title."<br>".$email.$emailURL."</small>
 										</div>
 									</div>
 								</div>
