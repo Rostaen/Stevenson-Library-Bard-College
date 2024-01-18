@@ -1,0 +1,302 @@
+.grecaptcha-badge {
+  width: 70px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  left: 4px !important;
+}
+.grecaptcha-badge:hover {
+  width: 256px !important;
+}
+body{
+	font-family: 'PT Sans', sans-serif !important;
+}
+body .navbar-custom .nav-item.active .nav-link, body .navbar-custom .nav-item:hover .nav-link {
+	color: #b90124 !important;
+}
+body a{
+	text-decoration: none;
+	color: #b90124;
+	font-weight: bold;
+}
+body a:hover{
+	color: #8c001a;
+}
+.featured-image nav.navbar{
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+.anchor{
+	display: block;
+    position: relative;
+    top: -5rem;
+    visibility: hidden;
+}
+.hide-text{
+	display: none;
+}
+.dn{
+	display: none;
+}
+.home .bard-bt-boarder{
+	border-bottom: #b90124 3px solid;
+}
+.bard-tp-boarder{
+	border-top: #b90124 2px solid;	
+}
+.navbar-dark.bg-gray .navbar-nav .nav-link:focus, .navbar-dark.bg-gray .navbar-nav .nav-link:hover {
+	/*color: rgba(255,255,255,1.0) !important;*/
+	color:  white !important;
+	text-decoration: underline;
+}
+.navbar-custom .navbar-nav .nav-link{
+	color: white !important;
+	font-size: 1.2rem; /*1.3*/
+	letter-spacing: .1em;
+	font-weight: normal;
+}
+.dropdown-menu{
+	padding: 0px !important;
+}
+.dropdown-menu[data-bs-popper]{
+	margin-top:  0rem !important;
+	/*background-color: #333;*/
+}
+.dropdown-menu .dropdown-item:first-child{
+	border-top: 0px solid #ccc;
+}
+.dropdown-menu .dropdown-item{
+	color: #b90124 !important;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border-top: 1px solid #ccc;
+}
+.home .btn .word{
+	font-size: 1.2rem;
+}
+.home .btn-secondary:hover{
+	background-color: white;
+	color: #6c757d;
+}
+
+header {
+	position: relative;
+	width: 100%;
+	min-height: auto;
+	text-align: center;
+	color: #fff;
+	background-image: url(https://www.bard.edu/library/images/libhomepage-desat.jpg);
+	background-color: black;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+    background-position-y: 891px;
+}
+.home-page-splash {
+	margin-top: 130px !important;
+	margin-bottom: 50px;
+	padding: 10px;
+	width: 90%;
+	/*margin-left: 5%;*/
+	border-radius: 5px;
+	color: white;
+}
+#home-page-motto{
+	text-align: left;
+	text-shadow: 1px 1px 4px #000000;
+	letter-spacing: 4px;
+}
+#home-page-motto, .radio-input-home{
+	font-weight: bold;
+	/*-webkit-text-stroke: 1px black;*/
+}
+.search-radio-item{
+	text-shadow: 1px 1px 4px #000000;
+	font-size: 1.5rem;
+	letter-spacing: 3px;
+	text-align: right;
+}
+.search-radio-item a{	
+	color: white;
+}
+input.search-button{
+		background-color: #b90124;
+    border: 0px;
+    color: white;
+}
+.hp-button{
+		width: 24%;
+		font-weight: 500 !important;
+    display: inline-flex !important;
+    flex-flow: column;
+    height: 102px;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px 0px 0px;
+    background-color: #555 !important;
+    border-color: #555 !important;
+}
+.hp-button:hover{
+    background-color: #b90124 !important;
+    border-color: #b90124 !important;
+    color: white !important;
+}
+.bard-card{
+	width: 24.25%;
+}
+a h2.card-title{
+	text-decoration: none;
+	color: #b90124;
+	font-size: 1.3rem;
+	padding-top: 5px;
+}
+.center-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.rss-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 261px;
+	overflow: hidden;
+}
+.rss-image{
+	/*max-height: 150px !important;
+	width: auto !important;
+	max-width: 200px !important;*/
+	opacity: 0.7;
+}
+.rss-image:hover{
+	opacity: 1;
+}
+a.rss-link{
+	text-decoration: none;
+}
+.mr-auto, .mx-auto{
+	margin-right:  auto !important;
+}
+
+.contact .contact-list.row .contact-item.row > * {
+	padding-left: 0px !important;
+}
+.contact .contact-list.row .contact-item.row img{
+	width: 100% !important;
+	height: inherit;
+}
+
+/*@media only screen and (max-width: 768px) {
+	.logo-style{
+		height: 1.2rem;
+	}
+}*/
+
+@media only screen and (max-width: 1400px) {
+	.logo-style{
+		height: 1.2rem;
+	}
+	.home-page-splash{
+		margin-top: 130px !important;
+		margin-bottom: 50px;
+	}
+	header{
+    	background-position-y: 685px;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.logo-style{
+		height: 1.2rem;
+	}
+	.hp-button{
+		width: 23%;
+	}
+	header{
+    	background-position-y: 630px;
+	}
+}
+
+@media only screen and (max-width:  1000px){
+	.hp-button{
+		width: 22%;
+	}
+	.home-page-splash{
+		margin-top: 90px !important;
+		margin-bottom: 30px;
+	}
+	header{
+    	background-position-y: 525px;
+	}
+}
+@media (max-width:  991px){
+	.hp-button{
+		width: 48%;
+	}
+	.home-page-splash{
+		margin-top: 60px !important;
+		margin-bottom: 5px;
+	}
+}
+
+@media (max-width:  850px){
+	.hp-button{
+		width: 48%;
+	}
+	.home-page-splash{
+		margin-top: 60px !important;
+		margin-bottom: 5px;
+	}
+	header{
+    	background-position-y: 440px;
+	}
+}
+
+@media (min-width:  10000px){
+	.home-page-splash {
+		margin-top: 180px;
+		margin-bottom: 100px;
+		padding: 10px;
+		width: 60%;
+		margin-left: 20%;
+		color: white;
+	}
+}
+@media (max-width: 576px) {
+	.hp-button{
+		width: 48%;
+	}
+	.home-page-splash{
+		margin-top: 60px !important;
+		margin-bottom: 5px;
+	}
+	header{
+    	background-position-y: 335px;
+	}
+}
+@media (max-width: 380px) {
+	.hp-button{
+		width: 47%;
+	}
+	.page-bottom{
+		text-align: center;
+	}
+	.float.btn.btn-bard{
+		font-size:  20px !important;
+	}
+	.home-page-splash{
+		margin-top: 80px !important;
+		margin-bottom: 0px;
+	}
+	header{
+    	background-position-y: 250px;
+	}
+}
+@media (max-width:  261px){
+	.hp-button{
+		width: 99%;
+	}
+	header{
+    	background-position-y: inherit;
+	}
+}

@@ -1,0 +1,31 @@
+# Ignore all files with an extension
+*.log
+*.rar
+*.zip
+
+# Ignore specific files
+dybbukdsl.php
+ebsco-added-style.css
+form-bookspurchase.php
+levybook.php
+levy-verify.php
+off-campus-help.php
+ourchildren.php
+php.ini
+pilgrimage.php
+thelightahead.php
+twosights.php
+verify.php
+verify1.php
+verify2.php
+verify-book-purchase-form.php
+verify-writing-appt.php
+
+# Ignore a specific folder named 'temp'
+archive/
+css/
+headers/
+images/
+inc/
+js/Old js/
+staging/
