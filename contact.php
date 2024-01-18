@@ -54,10 +54,7 @@
 						// Creating staffcard function
 						function staffIdCard ($pictureId, $name, $tempTitle, $refLibrian, $location, $phone, $email){
 							// Checking reference status and location
-							if($location == 'FSAB' || $location == 'Levy Institue')
-								$tempLocation = $location == 'FSAB' ? 'FSAB' : 'Levy Institute';
-							else
-								$tempLocation = "Office ".$location;
+							$tempLocation = findOffice($location);
 							$tempRefLib = $refLibrian == 1 ? '<br>Reference Librarian' : '';
 							$newLocation = $location == '' ? '' : '<br>'.$tempLocation;
 							$tempPhone = $phone == '' ? '' : '<br>845.'.$phone;

@@ -63,7 +63,6 @@
 				<form name="email librarian" id="emailLibrarian" method="post" action="verify.php">
 					<input type="hidden" value="order:Comments" name="sort" />
 					<input type="hidden" value="Comments" name="print_config" />
-					<input type="hidden" value="cawley@bard.edu" name="recipient" />
 					<input type="hidden" value="Contact Us Form - Stevenson Library Web Site" name="subject" />
 					<input type="hidden" value="email,name,Comments" name="required" />
 					<input type="hidden" name="cc_visitor" value="0" />
@@ -163,42 +162,55 @@
 			<hr>
 			<div>
 				<h3>Writing Support</h3>
-				<?php 
+				<?php
+					$results = fetchStaffData();
+
 					function librarianCard ($name, $room, $number, $email){
-						echo "<p><span class=\"fw-bold\">".$name."</span><br />".$room." <br />845.758.".$number."<br> ".$email."@bard.edu</p>";
+						$areaCode = "845.";
+						$emailURL = "@bard.edu";
+						echo "<p><span class=\"fw-bold\">".$name."</span><br />".$room." <br />".$areaCode.$number."<br> ".$email.$emailURL."</p>";
 					}
-					librarianCard("Jane Smith", "Stevenson 406", "7892", "jesmith");
-					//librarianCard("", "", "", "");
+					foreach ($results as $row) {
+						if($row['first'] == "Jane" && $row['last'] == "Smith"){
+							$name = $row['first']." ".$row['last'];
+							$location = findOffice($row['floor']);
+							librarianCard($name, $location, $row['phone'], $row['email']);
+						}
+					}
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Reference Librarians</h3>
 				<?php
-					librarianCard("Alexa Murphy", "Stevenson 303", "7064", "amurphy");
-					librarianCard("Billey Albina", "Stevenson, lower level 005", "7619", "abilley");
-					librarianCard("Helene Tieger", "Stevenson 204", "7396", "tieger");
-					librarianCard("Jeremy Hall", "Stevenson 103", "7675", "jhall");
-					librarianCard("Melanie Mambo", "Stevenson 306", "7399", "mmambo");
-					librarianCard("Shirra Rockwood", "Stevenson 004", "7617", "srockwood");
-					librarianCard("Bill Walker", "<a href=\"http://www.levyinstitute.org/\" target=\"_blank\">Levy Institute</a>", "7729", "wwalker");
+					foreach ($results as $row) {
+						if($row['ref_librarian'] == 1){
+							$name = $row['first']." ".$row['last'];
+							$location = findOffice($row['floor']);
+							librarianCard($name, $location, $row['phone'], $row['email']);
+						}
+					}
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Archives</h3>
-				<?php librarianCard("Helene Tieger", "Stevenson 204", "7396", "tieger"); ?>
-			</div>
-			<hr>
-			<div>
-				<h3>Visual Resources Center</h3>
-				<?php librarianCard("Amy Herman", "FSAB", "7304", "aherman"); ?>
+				<?php 
+					foreach ($results as $row) {
+						if($row['first'] == "Helene" && $row['last'] == "Tieger"){
+							$name = $row['first']." ".$row['last'];
+							$location = findOffice($row['floor']);
+							librarianCard($name, $location, $row['phone'], $row['email']);
+						}
+					}
+				?>
 			</div>
 		</div>
 	</div>
 </div>
 
 <?php
+	mysql_close($Link);
 	$page->close();
 ?>
 <script type="text/javascript">
