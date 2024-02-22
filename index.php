@@ -3,7 +3,7 @@ require_once("template.php");
 require_once("rss/rsslib.php");
 $page = new Template();
 $page->setTitle('Stevenson Library | Bard College');
-$page->setMetaDesc('Stevenson library at Bard College serving the students and faculty needs for higher education, seven days a week.');
+$page->setMetaDesc('Explore the resources and services offered by the Bard College Library. Discover academic databases, research guides, and helpful tools to support your studies and scholarly pursuits at Bard College.');
 $page->setOGTitle('Stevenson Library at Bard home page');
 // print page header
 $page->open();

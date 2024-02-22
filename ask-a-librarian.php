@@ -1,37 +1,37 @@
 <?php
-	require_once("template.php");
-	require_once("inc/connect.php");
+require_once("template.php");
+require_once("inc/connect.php");
 
-	$page = new Template();
-	$page->setTitle('Ask a Librarian | Steven Library | Bard College');
-	$page->setMetaKW('');
-	$page->setMetaDesc('');
+$page = new Template();
+$page->setTitle('Ask a Librarian | Steven Library | Bard College');
+$page->setMetaDesc('Get personalized research assistance from Bard College librarians. Use our Ask a Librarian service to receive expert guidance, access resources, and find answers to your academic questions.');
 
-	// print page header
-	$page->open();
+// print page header
+$page->open();
 ?>
 </header>
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
-   	function onSubmit1(token) {
-   		document.getElementById("emailLibrarian").submit();
-   	}
-   	function onSubmit2(token) {
-   		document.getElementById("researchConsult").submit();
-   	}
-   	/*function onSubmit3() {
-   		//document.getElementById("writingAppointment").submit();
-   		window.open("https://forms.gle/ir54Pbeiei6Zw7kL7");
-   	}*/
- </script>
+	function onSubmit1(token) {
+		document.getElementById("emailLibrarian").submit();
+	}
+
+	function onSubmit2(token) {
+		document.getElementById("researchConsult").submit();
+	}
+	/*function onSubmit3() {
+		//document.getElementById("writingAppointment").submit();
+		window.open("https://forms.gle/ir54Pbeiei6Zw7kL7");
+	}*/
+</script>
 
 <div class="mt-6 mb-1 bard-bt-boarder"></div>
 <div class="container">
 	<h1 class="text-center">Ask a Librarian</h1>
-	
+
 	<hr>
-	
+
 	<div class="row">
 		<div class="col-md-9">
 			<p>Looking for a book or journal article? Need help getting started on a paper? Have a question about citing a source? We're here to help! Use any of the options below to contact us.</p>
@@ -78,10 +78,7 @@
 						<label for="quemments">Comments/Questions:</label><br>
 						<textarea id="quemments" name="Comments" rows="3" cols="40"></textarea>
 					</div>
-					<button class="g-recaptcha btn btn-bard" 
-				        data-sitekey="6LcJo0saAAAAAKoJGVij8YWYu54YrC44PBC_oAyG" 
-				        data-callback='onSubmit1' 
-				        data-action='submit' style="cursor: pointer;">Submit</button>
+					<button class="g-recaptcha btn btn-bard" data-sitekey="6LcJo0saAAAAAKoJGVij8YWYu54YrC44PBC_oAyG" data-callback='onSubmit1' data-action='submit' style="cursor: pointer;">Submit</button>
 				</form>
 			</div>
 
@@ -109,7 +106,7 @@
 					</div>
 					<p><em>Please provide some times and dates for when you are available to meet with a librarian. Most days from 9am - 5pm are best, although other accommodations can be made.</em></p>
 					<div class="mb-2">
-						<label for="availability-rc">Your Availability:</label><br><textarea id="availability-rc" name="availability-rc" rows="3" cols="40" ></textarea>
+						<label for="availability-rc">Your Availability:</label><br><textarea id="availability-rc" name="availability-rc" rows="3" cols="40"></textarea>
 					</div>
 					<p><em>Please provide a date by which your research or paper must be completed.</em></p>
 					<div class="mb-2">
@@ -120,15 +117,12 @@
 					</div>
 					<p><em>Provide any additional information or questions you might have in this space.</em></p>
 					<div class="mb-2">
-						<label for="Comments-rc">Comments/Questions:</label><br><textarea id="Comments-rc" name="Comments-rc" rows="3" cols="40" ></textarea>
+						<label for="Comments-rc">Comments/Questions:</label><br><textarea id="Comments-rc" name="Comments-rc" rows="3" cols="40"></textarea>
 					</div>
 					<!-- <div id="recaptcha2" class="recaptcha-style"></div>
 					<input type="submit" name="Submit" value="Submit" class="recaptcha-style"/> -->
-					<button class="g-recaptcha btn btn-bard" 
-				        data-sitekey="6LcJo0saAAAAAKoJGVij8YWYu54YrC44PBC_oAyG" 
-				        data-callback='onSubmit2' 
-				        data-action='submit' style="cursor: pointer;">Submit
-				    </button>
+					<button class="g-recaptcha btn btn-bard" data-sitekey="6LcJo0saAAAAAKoJGVij8YWYu54YrC44PBC_oAyG" data-callback='onSubmit2' data-action='submit' style="cursor: pointer;">Submit
+					</button>
 				</form>
 			</div>
 
@@ -163,46 +157,47 @@
 			<div>
 				<h3>Writing Support</h3>
 				<?php
-					$results = fetchStaffData();
+				$results = fetchStaffData();
 
-					function librarianCard ($name, $room, $number, $email){
-						$areaCode = "845.";
-						$emailURL = "@bard.edu";
-						echo "<p><span class=\"fw-bold\">".$name."</span><br />".$room." <br />".$areaCode.$number."<br> ".$email.$emailURL."</p>";
+				function librarianCard($name, $room, $number, $email)
+				{
+					$areaCode = "845.";
+					$emailURL = "@bard.edu";
+					echo "<p><span class=\"fw-bold\">" . $name . "</span><br />" . $room . " <br />" . $areaCode . $number . "<br> " . $email . $emailURL . "</p>";
+				}
+				foreach ($results as $row) {
+					if ($row['first'] == "Jane" && $row['last'] == "Smith") {
+						$name = $row['first'] . " " . $row['last'];
+						$location = findOffice($row['floor']);
+						librarianCard($name, $location, $row['phone'], $row['email']);
 					}
-					foreach ($results as $row) {
-						if($row['first'] == "Jane" && $row['last'] == "Smith"){
-							$name = $row['first']." ".$row['last'];
-							$location = findOffice($row['floor']);
-							librarianCard($name, $location, $row['phone'], $row['email']);
-						}
-					}
+				}
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Reference Librarians</h3>
 				<?php
-					foreach ($results as $row) {
-						if($row['ref_librarian'] == 1){
-							$name = $row['first']." ".$row['last'];
-							$location = findOffice($row['floor']);
-							librarianCard($name, $location, $row['phone'], $row['email']);
-						}
+				foreach ($results as $row) {
+					if ($row['ref_librarian'] == 1) {
+						$name = $row['first'] . " " . $row['last'];
+						$location = findOffice($row['floor']);
+						librarianCard($name, $location, $row['phone'], $row['email']);
 					}
+				}
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Archives</h3>
-				<?php 
-					foreach ($results as $row) {
-						if($row['first'] == "Helene" && $row['last'] == "Tieger"){
-							$name = $row['first']." ".$row['last'];
-							$location = findOffice($row['floor']);
-							librarianCard($name, $location, $row['phone'], $row['email']);
-						}
+				<?php
+				foreach ($results as $row) {
+					if ($row['first'] == "Helene" && $row['last'] == "Tieger") {
+						$name = $row['first'] . " " . $row['last'];
+						$location = findOffice($row['floor']);
+						librarianCard($name, $location, $row['phone'], $row['email']);
 					}
+				}
 				?>
 			</div>
 		</div>
@@ -210,14 +205,17 @@
 </div>
 
 <?php
-	mysql_close($Link);
-	$page->close();
+mysql_close($Link);
+$page->close();
 ?>
 <script type="text/javascript">
- 	(function() {
-		var x = document.createElement("script"); x.type = "text/javascript"; x.async = true;
+	(function() {
+		var x = document.createElement("script");
+		x.type = "text/javascript";
+		x.async = true;
 		x.src = (document.location.protocol === "https:" ? "https://" : "http://") + "us.libraryh3lp.com/js/libraryh3lp.js?4748";
-		var y = document.getElementsByTagName("script")[0]; y.parentNode.insertBefore(x, y);
+		var y = document.getElementsByTagName("script")[0];
+		y.parentNode.insertBefore(x, y);
 	})();
 	$("#dateneeded-rc").datepicker();
 </script>

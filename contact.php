@@ -8,8 +8,7 @@ require_once('inc/connect.php');
 
 $page = new Template();
 $page->setTitle('Contact | Stevenson Library | Bard College');
-$page->setMetaKW('');
-$page->setMetaDesc('');
+$page->setMetaDesc('Contact Bard College Library for inquiries, assistance, and support. Find contact information for library staff, including phone numbers, email addresses, and office locations, to help you with your research and library-related questions.');
 
 // print page header
 $page->open();
@@ -103,6 +102,5 @@ $page->open();
 	</div>
 </div>
 <?php
-mysql_close($Link);
 $page->close();
 ?>

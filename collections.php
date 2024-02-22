@@ -4,8 +4,7 @@ require_once("rss/rsslib.php");
 
 $page = new Template();
 $page->setTitle('Collections | Bard College');
-$page->setMetaKW('');
-$page->setMetaDesc('');
+$page->setMetaDesc('Explore the diverse collections at Bard College Library, spanning various subjects, formats, and disciplines. Discover rare books, manuscripts, digital archives, and more, curated to support academic research and intellectual inquiry.');
 
 // print page header
 $page->open();

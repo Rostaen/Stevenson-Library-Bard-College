@@ -2,8 +2,7 @@
 require_once("template.php");
 $page = new Template();
 $page->setTitle('Hours | Steven Library | Bard College');
-$page->setMetaKW('');
-$page->setMetaDesc('');
+$page->setMetaDesc('View the operating hours of Bard College Library. Find the library\'s opening and closing times, including weekend hours and holiday schedules, to plan your visit for research, studying, or accessing library resources.');
 // print page header
 $page->open();
 function printHoursInfo($item)
