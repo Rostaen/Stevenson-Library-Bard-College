@@ -1,50 +1,13 @@
 <?php
 require_once("template.php");
 require_once('inc/connect.php');
+require_once('research-guides-functions.php');
+// Setting up page information
 $page = new Template();
 $page->setTitle('Research Guides | Steven Library | Bard College');
-$page->setMetaKW('');
-$page->setMetaDesc('');
+$page->setMetaDesc('Explore a curated collection of research guides covering diverse topics at Bard College Library. Access valuable resources and expert guidance to enhance your academic research journey.');
 // print page header
 $page->open();
-function printButton($url, $name)
-{
-    echo '<a href="https://libguides.bard.edu/' . $url . '" class="col-4">
-        <div class="guides-item btn btn-bard p-2 col-12 fs-5 mb-3">
-            ' . $name . '
-        </div>
-    </a>';
-}
-function fetchSection($guideType)
-{
-    $pdo = connectToDatabase();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $table = 'research_guides';
-    $queryTarget = 'name';
-    $sql = "SELECT url, name FROM $table WHERE course_type = '$guideType' ORDER BY $queryTarget";
-
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-function printSection($guideType, $title)
-{
-    echo '<div class="anchor" id="' . $guideType . '"></div>
-    <h2>' . $title . '</h2>
-    <div class="row mb-4">';
-    try {
-        $results = fetchSection($guideType);
-        if ($results)
-            foreach ($results as $item)
-                printButton($item['url'], $item['name']);
-        else
-            echo "<h3><b>This section is coming soon!</b></h3>";
-    } catch (PDOException $e) {
-        echo '<p>Database Error: ' . $e->getMessage() . '</p>';
-        error_log('PDOException: ' . $e->getMessage());
-    }
-    echo '</div>';
-}
 ?>
 
 </header>
