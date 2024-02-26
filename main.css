@@ -7,6 +7,15 @@
 .grecaptcha-badge:hover {
   width: 256px !important;
 }
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.clear{
+	clear: both;
+}
 body{
 	font-family: 'PT Sans', sans-serif !important;
 }
@@ -41,7 +50,7 @@ body a:hover{
 	border-bottom: #b90124 3px solid;
 }
 .bard-tp-boarder{
-	border-top: #b90124 2px solid;	
+	border-top: #b90124 2px solid;
 }
 .navbar-dark.bg-gray .navbar-nav .nav-link:focus, .navbar-dark.bg-gray .navbar-nav .nav-link:hover {
 	/*color: rgba(255,255,255,1.0) !important;*/
@@ -116,7 +125,7 @@ header {
 	letter-spacing: 3px;
 	text-align: right;
 }
-.search-radio-item a{	
+.search-radio-item a{
 	color: white;
 }
 input.search-button{

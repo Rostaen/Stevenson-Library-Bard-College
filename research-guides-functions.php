@@ -39,7 +39,10 @@ function fetchSection($guideType)
 function printSection($guideType, $title)
 {
     echo '<div class="anchor" id="' . $guideType . '"></div>
-    <h2>' . $title . '</h2>
+    <h2>' . $title;
+    if ($title != "Browsing")
+        echo ' Guides';
+    echo '</h2>
     <div class="row mb-4">';
     try {
         $results = fetchSection($guideType);
