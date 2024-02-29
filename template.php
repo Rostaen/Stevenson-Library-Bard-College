@@ -69,95 +69,95 @@ class Template
 
 		<body>
 			<header class="featured-image">
-				<div class="navbar navbar-expand-xl navbar-dark bg-gray fixed-top navbar-custom ps-2 pe-2" aria-label="Main navigation">
-					<a class="navbar-brand mr-auto" href="index.php">
+				<div class="navbar navbar-expand-xl navbar-dark bg-gray fixed-top navbar-custom ps-2 pe-2 row" aria-label="Main navigation">
+					<a class="navbar-brand col-3" href="index.php">
 						<img class="logo-style" src="images/logo-stevenson-3.png" alt="Bard Libraries - Home">
 					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#BILnav" aria-controls="BILnav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<nav class="collapse navbar-collapse row" id="BILnav">
-						<div class="col-1">&nbsp;</div>
-						<ul class="navbar-nav mx-auto col-7">
-							<li class="nav-item me-2 dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Search</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="https://libguides.bard.edu/az.php">Databases</a>
-									<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://search.ebscohost.com/login.aspx?authtype=ip,guest&custid=s8999806&groupid=main&direct=true&db=edspub&profile=eds&plp=1">Journals by Title</a>
-									<a class="dropdown-item" href="https://library.bard.edu/">Catalog</a>
-									<!-- <a class="dropdown-item" href="https://cny.reshare.indexdata.com/">Connect NY</a> -->
-									<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.worldcat.org/">Worldcat</a>
-									<a class="dropdown-item" href="https://digitalcommons.bard.edu/">Digital Commons</a>
-								</div>
-							</li>
-							<li class="nav-item me-2 dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="ask-a-librarian.php">Ask a Librarian</a>
-									<a class="dropdown-item" href="ask-a-librarian.php#makeAResearch">Make a Research Appointment</a>
-									<a class="dropdown-item" href="off-campus-help.php">Off Campus Access Help</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/?b=s">Research Guides</a>
-									<a class="dropdown-item" href="ask-a-librarian.php#requestAWritingAppointment">Request a Writing Appointment</a>
-									<a class="dropdown-item" href="https://goo.gl/forms/6Aulkz1lnZGz6I3C2" target="_blank">Special Collections Request Form</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/find-it">Find It in the Library</a>
-									<!-- <a class="dropdown-item" href="https://libguides.bard.edu/helping-videos">Help Videos</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/how-to-guide">How to Guides</a> -->
-								</div>
-							</li>
-							<li class="nav-item me-2 dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="https://libguides.bard.edu/faculty">For Faculty</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/senior-project-support">Senior Project Support</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/borrowrenew">Borrow &amp; Renew Books</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/reserves">Reserves</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/ILL">Interlibrary Loan</a>
-									<a class="dropdown-item" href="https://www.sensusaccess.com/web3/bard/" target="_blank">Bard Accessibility Converter (SensusAccess)</a>
-									<a class="dropdown-item" href="https://space.bard.edu/">Reserve Library Rooms</a>
-									<a class="dropdown-item" href="writing-support.php">Writing Support</a>
-									<!-- <a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.noodletools.com/login.php?group=2665&code=2318" target="_blank">NoodleTools</a> -->
-									<!-- <a class="dropdown-item" href="https://digitalcommons.bard.edu/" target="_blank">Digital Commons</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/c.php?g=1125434&p=8209136">Borrowing</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/my-books-fines">Renew Books</a> -->
-								</div>
-							</li>
-							<li class="nav-item me-2 dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="contact.php">Contact</a>
-									<a class="dropdown-item" href="hours.php">Hours</a>
-									<!-- <a class="dropdown-item" href="about.php">Welcome</a> -->
-									<a class="dropdown-item" href="collections.php">Collections</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/accessibility">Accessibility</a>
-									<a class="dropdown-item" href="https://libguides.bard.edu/student-jobs">Student Jobs FAQ</a>
-								</div>
-							</li>
-							<li class="nav-item me-2">
-								<a class="nav-link" href="https://libguides.bard.edu/fosl" target="_blank">Friends</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Account</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="https://librarysso.bard.edu/patroninfo">See My Library Account</a>
-									<a class="dropdown-item" href="https://bard.illiad.oclc.org/illiad/logon.html">Interlibrary Loan Account</a>
-								</div>
-							</li>
-							<li class="nav-item">
-								<a href="https://www.facebook.com/bardlibrary" class="facebook nav-link" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-							</li>
-							<li class="nav-item">
-								<a href="https://www.instagram.com/bardlibrary" class="instagram nav-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-							</li>
-						</ul>
-						<div class="col-3">&nbsp;</div>
-						<ul class="navbar-nav col-1">
-							<li class="nav-item">
-								<div class="logo">
-									<a target="_blank" href="https://www.bard.edu/" title="Bard Home"><img src="images/logo-bard-sm1.png" alt="Bard Logo" class="img-fluid"></a>
-								</div>
-							</li>
-						</ul>
-					</nav>
+					<div class="col-8">
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#BILnav" aria-controls="BILnav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<nav class="collapse navbar-collapse row" id="BILnav">
+							<div class="col-1">&nbsp;</div>
+							<ul class="navbar-nav mx-auto col-7">
+								<li class="nav-item me-2 dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Search</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="https://libguides.bard.edu/az.php">Databases</a>
+										<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://search.ebscohost.com/login.aspx?authtype=ip,guest&custid=s8999806&groupid=main&direct=true&db=edspub&profile=eds&plp=1">Journals by Title</a>
+										<a class="dropdown-item" href="https://library.bard.edu/">Catalog</a>
+										<!-- <a class="dropdown-item" href="https://cny.reshare.indexdata.com/">Connect NY</a> -->
+										<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.worldcat.org/">Worldcat</a>
+										<a class="dropdown-item" href="https://digitalcommons.bard.edu/">Digital Commons</a>
+									</div>
+								</li>
+								<li class="nav-item me-2 dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="ask-a-librarian.php">Ask a Librarian</a>
+										<a class="dropdown-item" href="ask-a-librarian.php#makeAResearch">Make a Research Appointment</a>
+										<a class="dropdown-item" href="off-campus-help.php">Off Campus Access Help</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/?b=s">Research Guides</a>
+										<a class="dropdown-item" href="ask-a-librarian.php#requestAWritingAppointment">Request a Writing Appointment</a>
+										<a class="dropdown-item" href="https://goo.gl/forms/6Aulkz1lnZGz6I3C2" target="_blank">Special Collections Request Form</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/find-it">Find It in the Library</a>
+										<!-- <a class="dropdown-item" href="https://libguides.bard.edu/helping-videos">Help Videos</a>
+											<a class="dropdown-item" href="https://libguides.bard.edu/how-to-guide">How to Guides</a> -->
+									</div>
+								</li>
+								<li class="nav-item me-2 dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="https://libguides.bard.edu/faculty">For Faculty</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/senior-project-support">Senior Project Support</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/borrowrenew">Borrow &amp; Renew Books</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/reserves">Reserves</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/ILL">Interlibrary Loan</a>
+										<a class="dropdown-item" href="https://www.sensusaccess.com/web3/bard/" target="_blank">Bard Accessibility Converter (SensusAccess)</a>
+										<a class="dropdown-item" href="https://space.bard.edu/">Reserve Library Rooms</a>
+										<a class="dropdown-item" href="writing-support.php">Writing Support</a>
+										<!-- <a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.noodletools.com/login.php?group=2665&code=2318" target="_blank">NoodleTools</a> -->
+										<!-- <a class="dropdown-item" href="https://digitalcommons.bard.edu/" target="_blank">Digital Commons</a>
+											<a class="dropdown-item" href="https://libguides.bard.edu/c.php?g=1125434&p=8209136">Borrowing</a>
+											<a class="dropdown-item" href="https://libguides.bard.edu/my-books-fines">Renew Books</a> -->
+									</div>
+								</li>
+								<li class="nav-item me-2 dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="contact.php">Contact</a>
+										<a class="dropdown-item" href="hours.php">Hours</a>
+										<!-- <a class="dropdown-item" href="about.php">Welcome</a> -->
+										<a class="dropdown-item" href="collections.php">Collections</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/accessibility">Accessibility</a>
+										<a class="dropdown-item" href="https://libguides.bard.edu/student-jobs">Student Jobs FAQ</a>
+									</div>
+								</li>
+								<li class="nav-item me-2">
+									<a class="nav-link" href="https://libguides.bard.edu/fosl" target="_blank">Friends</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Account</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="https://librarysso.bard.edu/patroninfo">See My Library Account</a>
+										<a class="dropdown-item" href="https://bard.illiad.oclc.org/illiad/logon.html">Interlibrary Loan Account</a>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="https://www.facebook.com/bardlibrary" class="facebook nav-link" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+								</li>
+								<li class="nav-item">
+									<a href="https://www.instagram.com/bardlibrary" class="instagram nav-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+								</li>
+							</ul>
+							<div class="col-3">&nbsp;</div>
+						</nav>
+					</div>
+					<div class="col-1">
+						<div class="logo">
+							<a target="_blank" href="https://www.bard.edu/" title="Bard Home"><img src="images/logo-bard-sm1.png" alt="Bard Logo" class="img-fluid"></a>
+						</div>
+					</div>
 				</div>
 			<? }
 

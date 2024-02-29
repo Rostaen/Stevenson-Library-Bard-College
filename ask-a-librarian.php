@@ -205,7 +205,6 @@ $page->open();
 </div>
 
 <?php
-mysql_close($Link);
 $page->close();
 ?>
 <script type="text/javascript">
