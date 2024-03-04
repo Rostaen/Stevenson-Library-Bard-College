@@ -25,7 +25,7 @@ function fetchSection($guideType)
 
     $table = 'research_guides';
     $queryTarget = 'name';
-    $sql = "SELECT url, name FROM $table WHERE course_type = '$guideType' ORDER BY $queryTarget";
+    $sql = "SELECT url, name, active FROM $table WHERE course_type = '$guideType' AND active = 1 ORDER BY $queryTarget";
 
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
