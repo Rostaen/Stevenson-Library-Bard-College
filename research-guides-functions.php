@@ -7,8 +7,8 @@
  */
 function printButton($url, $name)
 {
-    echo '<a href="https://libguides.bard.edu/' . $url . '" class="col-4">
-        <div class="guides-item btn btn-bard p-2 col-12 fs-5 mb-3">
+    echo '<a href="https://libguides.bard.edu/' . $url . '" class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="guides-item btn btn-bard-2 p-2 col-12 fs-5 mb-3">
             ' . $name . '
         </div>
     </a>';

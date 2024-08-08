@@ -97,7 +97,7 @@ class Template
 										<a class="dropdown-item" href="ask-a-librarian.php">Ask a Librarian</a>
 										<a class="dropdown-item" href="ask-a-librarian.php#makeAResearch">Make a Research Appointment</a>
 										<a class="dropdown-item" href="off-campus-help.php">Off Campus Access Help</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/?b=s">Research Guides</a>
+										<a class="dropdown-item" href="https://www.bard.edu/library/research-guides.php">Research Guides</a>
 										<a class="dropdown-item" href="ask-a-librarian.php#requestAWritingAppointment">Request a Writing Appointment</a>
 										<a class="dropdown-item" href="https://goo.gl/forms/6Aulkz1lnZGz6I3C2" target="_blank">Special Collections Request Form</a>
 										<a class="dropdown-item" href="https://libguides.bard.edu/find-it">Find It in the Library</a>

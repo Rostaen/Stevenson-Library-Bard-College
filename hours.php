@@ -9,6 +9,13 @@ function printHoursInfo($item)
 {
 	echo '<div class="col-6">' . $item . '</div>';
 }
+function printHoursBlock($title, $hoursArray)
+{
+	echo '<div class="mb-4"><h2>' . $title . '</h2><div class="row">';
+	for ($x = 0; $x < count($hoursArray); $x++)
+		printHoursInfo($hoursArray[$x]);
+	echo '</div></div>';
+}
 $regularHours = ["Sunday", "10a - 1a", "Monday", "8a - 1a", "Tuesday", "8a - 1a", "Wednesday", "8a - 1a", "Thursday", "8a - 1a", "Friday", "8a - 10p", "Saturday", "10a - 10p"];
 $referenceHours = ["Sunday", "12p - 5p", "Monday", "10a - 6p", "Tuesday", "10a - 6p", "Wednesday", "10a - 6p", "Thursday", "10a - 6p", "Friday", "10a - 4p", "Saturday", "N/A"];
 ?>
@@ -41,25 +48,10 @@ $referenceHours = ["Sunday", "12p - 5p", "Monday", "10a - 6p", "Tuesday", "10a -
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="mb-4">
-				<h2>Regular Semester Hours</h2>
-				<div class="row">
-					<?php
-					for ($x = 0; $x < count($regularHours); $x++)
-						printHoursInfo($regularHours[$x]);
-					?>
-				</div>
-			</div>
-
-			<div class="mb-4">
-				<h2>Reference Desk Hours</h2>
-				<div class="row">
-					<?php
-					for ($x = 0; $x < count($referenceHours); $x++)
-						printHoursInfo($referenceHours[$x]);
-					?>
-				</div>
-			</div>
+			<?php
+			printHoursBlock("Regular Semester Hours", $regularHours);
+			printHoursBlock("Reference Desk Hours", $referenceHours);
+			?>
 		</div>
 	</div>
 </div>

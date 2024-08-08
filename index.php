@@ -12,29 +12,164 @@ $page->open();
 	<div class="row">
 		<div class="home-page-splash">
 			<h1 id="home-page-motto">Research and Discover</h1>
-			<!-- EBSCO Search Box Begins -->
-			<form id="edsSearchForm" class="ebscohostCustomSearchBox" action="" onsubmit="return ebscoHostSearchGo(this);" method="post">
-				<input id="ebscohostwindow" name="ebscohostwindow" value="1" type="hidden">
-				<input id="ebscohosturl" name="ebscohosturl" value="https://search.ebscohost.com/login.aspx?direct=true&authtype=ip,guest&site=eds-live&scope=site&type=0&custid=s8999806&groupid=main&profid=eds&mode=and&lang=en" type="hidden">
-				<input id="ebscohostsearchsrc" name="ebscohostsearchsrc" value="db" type="hidden">
-				<input id="ebscohostsearchmode" name="ebscohostsearchmode" value="+" type="hidden">
-				<input id="ebscohostkeywords" name="ebscohostkeywords" value="" type="hidden">
-				<div class="input-group input-group-lg">
-					<label class="title dn" for="ebscohostsearchtext">Search</label>
-					<input class="form-control py=2 shadow search-bar" type="search" data-type="search" id="ebscohostsearchtext" name="ebscohostsearchtext" placeholder="What are you searching for?">
-					<input type="submit" class="search-button ps-4 pe-4 fs-4" value="Search">
-				</div>
-				<div class="search-radio-container">
-					<fieldset style="border:0; padding:0px;">
-						<legend style="font-size:0px;">Search Everything Choices</legend>
-						<div class="row">
-							<div class="col-12 search-radio-item everything">
-								<a href="https://search.ebscohost.com/login.aspx?direct=true&authtype=ip,guest&custid=s8999806&setup=1&groupid=main&profile=eds" target="_blank">Advanced Search ►</a>
-							</div>
+			<!-- WMS Search Bar Begins -->
+			<div id="discovery-search-box" style="margin: 1em 0px 2em;">
+				<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+				<style type="text/css">
+					#discovery-search-box,
+					#discovery-search-box * {
+						box-sizing: border-box !important;
+						margin: 0;
+						padding: 0;
+						text-align: left
+					}
+
+					#discovery-search-box .material-tab {
+						display: inline-block;
+						user-select: none;
+						cursor: pointer;
+						background-color: #545454;
+						color: #fff;
+						min-height: 2em;
+						min-width: 1.5rem;
+						padding: .5em;
+						box-sizing: border-box;
+						border-radius: .25em .25em 0 0;
+						margin-right: .4em;
+						z-index: 2
+					}
+
+					#discovery-search-form {
+						position: 'relative';
+						width: auto;
+						padding: 1.25em 2em 2em;
+						background-color: #f2f2f2 !important;
+						color: #333 !important;
+						z-index: 1;
+						line-height: initial;
+						border-radius: 0px 3px 3px 3px;
+					}
+
+					#discovery-search-box .material-tab.active-tab {
+						background-color: #f2f2f2 !important;
+						color: #333 !important
+					}
+
+					#discovery-index-container {
+						position: relative;
+						height: 3em;
+						background-color: white;
+						color: black
+					}
+
+					#discovery-index-container:after {
+						content: '\f078';
+						display: block;
+						font-family: 'FontAwesome', sans-serif;
+						position: absolute;
+						top: 0;
+						right: .5em;
+						line-height: 3em;
+						z-index: 5
+					}
+
+					#discovery-index-container #discovery-search-select {
+						position: relative;
+						z-index: 10;
+						height: 100%;
+						min-width: initial;
+						font-size: 1em;
+						padding: 0 2em 0 1em;
+						background-color: transparent;
+						border-top: 1px solid #ccc;
+						border-right: 0;
+						border-bottom: 1px solid #ccc;
+						border-left: 1px solid #ccc;
+						border-image: initial;
+						border-radius: 0;
+						-webkit-appearance: none;
+						-moz-appearance: none
+					}
+
+					select::-ms-expand {
+						display: none
+					}
+				</style>
+				<div style="display: flex; font-size: 1.1em; box-sizing: border-box; text-align: center;"><span class="material-tab active-tab" data-facets="[{&quot;key&quot;:&quot;format&quot;,&quot;value&quot;:&quot;all&quot;}]" tabindex="0">Everything</span><span class="material-tab" data-facets="[{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Book::book_digital&quot;},{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Book::book_printbook&quot;},{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Book::book_largeprint&quot;},{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Book::book_braille&quot;},{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Book::book_continuing&quot;}]" tabindex="0">Books</span><span class="material-tab" data-facets="[{&quot;key&quot;:&quot;format&quot;,&quot;value&quot;:&quot;Jrnl&quot;}]" tabindex="0">Journals</span><span class="material-tab" data-facets="[{&quot;key&quot;:&quot;subformat&quot;,&quot;value&quot;:&quot;Artchap::artchap_artcl&quot;}]" tabindex="0">Articles</span></div>
+				<form id="discovery-search-form"><label for="discovery-search" style="display: inline-block; font-size: 1.3em; font-weight: normal; margin-bottom: 0.5em;">Research and Discover</label>
+					<div style="display: flex; width: 100%;">
+						<div style="display: flex; flex-grow: 1;">
+							<div id="discovery-index-container"><select id="discovery-search-select">
+									<option value="kw" selected="">Keyword</option>
+									<option value="au">Author</option>
+									<option value="su">Subject</option>
+									<option value="ti">Title</option>
+								</select></div><input type="text" id="discovery-search" required="" autocomplete="off" style="display: inline-block; width: 100%; height: 3em; font-size: 1em; padding: 0px 0.5em; margin-bottom: 0.5em; color: black; background-color: white; border: 1px solid rgb(204, 204, 204); box-shadow: none;">
 						</div>
-					</fieldset>
-				</div>
-			</form>
+						<div><input type="submit" value="Search" style="padding: 0.75em 1.5em; font-size: 1em; width: auto; height: 3em; min-width: 8em; color: rgb(255, 255, 255); background-color: rgb(185, 1, 36); margin: 0px 0px 0px 0.5em; border-radius: 0.25em; border: none; background-image: none; float: none; text-align: center;"></div>
+					</div>
+					<div style="display: flex; justify-content: space-between;">
+						<p style="flex-basis: 50%; flex-grow: 1; font-size: 1.1em;">What are you looking for?</p>
+						<p style="flex-basis: 100%; font-size: 0.9em; text-align: right;"><a id="discovery-advanced-search" href="https://bardcollege.on.worldcat.org/advancedsearch" target="_blank" style="text-decoration: underline; color: rgb(51, 51, 51);">Advanced Search</a></p>
+					</div>
+				</form>
+				<script type="text/javascript">
+					(function() {
+						var d, w, tabList, h, form, input, urlBase, active, facets, v, r, rt, a, f, select, query;
+						d = document;
+						w = window;
+						r = (function() {
+							try {
+								return w.self !== w.top;
+							} catch (e) {
+								return true;
+							}
+						})();
+						rt = r ? '_blank' : '_self';
+						a = d.getElementById('discovery-advanced-search');
+						if (a) a.setAttribute('target', rt);
+						tabList = d.querySelectorAll('#discovery-search-box span.material-tab');
+						tabList = [].slice.call(tabList);
+						h = function(e) {
+							if (e.keyCode && e.keyCode !== 13) return;
+							tabList.forEach(function(it) {
+								it.className = 'material-tab';
+							});
+							this.className = 'material-tab active-tab';
+						};
+						tabList.forEach(function(tab) {
+							tab.addEventListener('click', h);
+							tab.addEventListener('keydown', h);
+						});
+						form = d.getElementById('discovery-search-form');
+						input = d.getElementById('discovery-search');
+						select = d.getElementById('discovery-search-select');
+						urlBase = 'https://bardcollege.on.worldcat.org/external-search?queryString=#T#&clusterResults=on&groupVariantRecords=off&stickyFacetsChecked=on#F#';
+						form.addEventListener('submit', function(e) {
+							e.preventDefault();
+							e.stopPropagation();
+							f = '';
+							active = d.querySelector('.material-tab.active-tab');
+							if (active) {
+								facets = JSON.parse(active.getAttribute('data-facets') || '[]');
+								facets.forEach(function(facet) {
+									console.log(facet);
+									if (facet.key && facet.value && facet.value !== 'all') {
+										f += '&' + facet.key + '=' + facet.value;
+									}
+								})
+							}
+							query = input.value;
+							if (select) {
+								var index = select.options[select.selectedIndex].value
+								if (index !== 'kw') query = select.options[select.selectedIndex].value + ':' + query;
+							}
+							w.open(urlBase.replace('#T#', encodeURIComponent(query)).replace('#F#', f), rt);
+						});
+					})()
+				</script>
+			</div>
+			<!-- WMS Search Bar Ends -->
 		</div>
 	</div>
 </div>
@@ -58,13 +193,12 @@ $page->open();
 			}
 			$homePageData = [
 				["databases", "https://libguides.bard.edu/az.php", false, "database", "Databases"],
-				["catalog", "https://library.bard.edu/", true, "book", "Catalog"],
+				// ["catalog", "https://library.bard.edu/", true, "book", "Catalog"],
 				["borrowing", "https://libguides.bard.edu/ILL", true, "book-open", "Interlibrary Loan"],
-				["journals", "http://ezprox.bard.edu/login?url=https://search.ebscohost.com/login.aspx?authtype=ip,guest&custid=s8999806&groupid=main&direct=true&db=edspub&profile=eds&plp=1", false, "newspaper", "Journals List"],
-				["research-guides", "https://libguides.bard.edu/?b=s", true, "search", "Research Guides"],
+				["journals", "https://bardcollege.on.worldcat.org/atoztitles/search#journal", false, "newspaper", "Journals List"],
 				["archives", "https://www.bard.edu/archives/", true, "university", "Archives"],
-				["commons", "https://digitalcommons.bard.edu/communities.html", true, "file-invoice", "Digital Commons"],
-				["senior-projects", "https://digitalcommons.bard.edu/undergrad/", true, "graduation-cap", "Senior Projects"],
+				["commons", "https://digitalcommons.bard.edu", true, "file-invoice", "Digital Commons"],
+				["research-guides", "https://www.bard.edu/library/research-guides.php", true, "search", "Research Guides"],
 			];
 			for ($x = 0; $x < count($homePageData); $x++)
 				homePageButton($homePageData[$x][0], $homePageData[$x][1], $homePageData[$x][2], $homePageData[$x][3], $homePageData[$x][4]);
