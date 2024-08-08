@@ -1,12 +1,15 @@
 <?php
 require_once("template.php");
 require_once("rss/rsslib.php");
+require_once("page-functions/index-functions.php");
+
 $page = new Template();
 $page->setTitle('Stevenson Library | Bard College');
 $page->setMetaDesc('Explore the resources and services offered by the Bard College Library. Discover academic databases, research guides, and helpful tools to support your studies and scholarly pursuits at Bard College.');
 $page->setOGTitle('Stevenson Library at Bard home page');
 // print page header
 $page->open();
+
 ?>
 <div class="container">
 	<div class="row">
@@ -49,27 +52,9 @@ $page->open();
 		<div class="col-xl-9 col-md-7 col-sm-12 mb-12">
 			<h3 class="hide-text">Find Resources</h3>
 			<?php
-			function homePageButton($id, $link, $newTab, $fontAwesomeIcon, $title)
-			{
-				$newPage = $newTab ? "target='_blank'" : "";
-				echo "
-						<a id=\"find-" . $id . "\" class=\"btn btn-secondary hp-button mb-1\" href=\"" . $link . "\" " . $newPage . ">
-							<i class=\"fas fa-2x fa-" . $fontAwesomeIcon . "\"></i>
-							<div class=\"word\">" . $title . "</div>
-						</a>
-					";
-			}
-			$homePageData = [
-				["databases", "https://libguides.bard.edu/az.php", false, "database", "Databases"],
-				// ["catalog", "https://library.bard.edu/", true, "book", "Catalog"],
-				["borrowing", "https://libguides.bard.edu/ILL", true, "book-open", "Interlibrary Loan"],
-				["journals", "https://bardcollege.on.worldcat.org/atoztitles/search#journal", false, "newspaper", "Journals List"],
-				["archives", "https://www.bard.edu/archives/", true, "university", "Archives"],
-				["commons", "https://digitalcommons.bard.edu", true, "file-invoice", "Digital Commons"],
-				["research-guides", "https://www.bard.edu/library/research-guides.php", true, "search", "Research Guides"],
-			];
-			for ($x = 0; $x < count($homePageData); $x++)
-				homePageButton($homePageData[$x][0], $homePageData[$x][1], $homePageData[$x][2], $homePageData[$x][3], $homePageData[$x][4]);
+			$results = getButtons();
+			foreach ($results as $row)
+				homePageButton($row['nameID'], $row['url'], $row['newTab'], $row['icon'], $row['title']);
 			?>
 		</div>
 		<div class="col-xl-3 col-md-5">
@@ -137,4 +122,3 @@ $page->close();
 		});
 	});
 </script>
-<script src="https://support.ebsco.com/eit/scripts/ebscohostsearch.js" type="text/javascript"></script>
