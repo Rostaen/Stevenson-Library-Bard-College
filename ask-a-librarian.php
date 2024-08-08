@@ -1,6 +1,7 @@
 <?php
 require_once("template.php");
 require_once("inc/connect.php");
+require_once("page-functions/ask-a-librarian-functions.php");
 
 $page = new Template();
 $page->setTitle('Ask a Librarian | Steven Library | Bard College');
@@ -8,6 +9,7 @@ $page->setMetaDesc('Get personalized research assistance from Bard College libra
 
 // print page header
 $page->open();
+
 ?>
 </header>
 
@@ -158,46 +160,27 @@ $page->open();
 				<h3>Writing Support</h3>
 				<?php
 				$results = fetchStaffData();
-
-				function librarianCard($name, $room, $number, $email)
-				{
-					$areaCode = "845.";
-					$emailURL = "@bard.edu";
-					echo "<p><span class=\"fw-bold\">" . $name . "</span><br />" . $room . " <br />" . $areaCode . $number . "<br> " . $email . $emailURL . "</p>";
-				}
-				foreach ($results as $row) {
-					if ($row['first'] == "Jane" && $row['last'] == "Smith") {
-						$name = $row['first'] . " " . $row['last'];
-						$location = findOffice($row['floor']);
-						librarianCard($name, $location, $row['phone'], $row['email']);
-					}
-				}
+				foreach ($results as $row)
+					if ($row['first'] == "Jane" && $row['last'] == "Smith")
+						printInfo($row);
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Reference Librarians</h3>
 				<?php
-				foreach ($results as $row) {
-					if ($row['ref_librarian'] == 1) {
-						$name = $row['first'] . " " . $row['last'];
-						$location = findOffice($row['floor']);
-						librarianCard($name, $location, $row['phone'], $row['email']);
-					}
-				}
+				foreach ($results as $row)
+					if ($row['ref_librarian'] == 1)
+						printInfo($row);
 				?>
 			</div>
 			<hr>
 			<div>
 				<h3>Archives</h3>
 				<?php
-				foreach ($results as $row) {
-					if ($row['first'] == "Helene" && $row['last'] == "Tieger") {
-						$name = $row['first'] . " " . $row['last'];
-						$location = findOffice($row['floor']);
-						librarianCard($name, $location, $row['phone'], $row['email']);
-					}
-				}
+				foreach ($results as $row)
+					if ($row['first'] == "Helene" && $row['last'] == "Tieger")
+						printInfo($row);
 				?>
 			</div>
 		</div>

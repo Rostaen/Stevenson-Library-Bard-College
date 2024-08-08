@@ -1,10 +1,12 @@
 <?php
+
 class Template
 {
 	var $title = 'Untitled';
 	var $keywords = 'keywords';
 	var $description = 'description';
 	var $script = '';
+	var $ogtitle = '';
 	function setTitle($title)
 	{
 		$this->title = $title;
@@ -25,8 +27,15 @@ class Template
 	{
 		$this->ogtitle = $ogtitle;
 	}
+
 	function open()
-	{ ?>
+	{
+		// error_reporting(E_ALL);
+		// ini_set('display_errors', 1);
+
+		include_once('inc/connect.php');
+		include_once('page-functions/template-functions.php');
+?>
 		<!DOCTYPE HTML>
 		<html lang="en">
 
@@ -80,75 +89,28 @@ class Template
 						<nav class="collapse navbar-collapse row" id="BILnav">
 							<div class="col-1">&nbsp;</div>
 							<ul class="navbar-nav mx-auto col-7">
-								<li class="nav-item me-2 dropdown">
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Search</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="https://libguides.bard.edu/az.php">Databases</a>
-										<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://search.ebscohost.com/login.aspx?authtype=ip,guest&custid=s8999806&groupid=main&direct=true&db=edspub&profile=eds&plp=1">Journals by Title</a>
-										<a class="dropdown-item" href="https://library.bard.edu/">Catalog</a>
-										<!-- <a class="dropdown-item" href="https://cny.reshare.indexdata.com/">Connect NY</a> -->
-										<a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.worldcat.org/">Worldcat</a>
-										<a class="dropdown-item" href="https://digitalcommons.bard.edu/">Digital Commons</a>
-									</div>
-								</li>
-								<li class="nav-item me-2 dropdown">
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="ask-a-librarian.php">Ask a Librarian</a>
-										<a class="dropdown-item" href="ask-a-librarian.php#makeAResearch">Make a Research Appointment</a>
-										<a class="dropdown-item" href="off-campus-help.php">Off Campus Access Help</a>
-										<a class="dropdown-item" href="https://www.bard.edu/library/research-guides.php">Research Guides</a>
-										<a class="dropdown-item" href="ask-a-librarian.php#requestAWritingAppointment">Request a Writing Appointment</a>
-										<a class="dropdown-item" href="https://goo.gl/forms/6Aulkz1lnZGz6I3C2" target="_blank">Special Collections Request Form</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/find-it">Find It in the Library</a>
-										<!-- <a class="dropdown-item" href="https://libguides.bard.edu/helping-videos">Help Videos</a>
-											<a class="dropdown-item" href="https://libguides.bard.edu/how-to-guide">How to Guides</a> -->
-									</div>
-								</li>
-								<li class="nav-item me-2 dropdown">
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="https://libguides.bard.edu/faculty">For Faculty</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/senior-project-support">Senior Project Support</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/borrowrenew">Borrow &amp; Renew Books</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/reserves">Reserves</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/ILL">Interlibrary Loan</a>
-										<a class="dropdown-item" href="https://www.sensusaccess.com/web3/bard/" target="_blank">Bard Accessibility Converter (SensusAccess)</a>
-										<a class="dropdown-item" href="https://space.bard.edu/">Reserve Library Rooms</a>
-										<a class="dropdown-item" href="writing-support.php">Writing Support</a>
-										<!-- <a class="dropdown-item" href="http://ezprox.bard.edu/login?url=https://www.noodletools.com/login.php?group=2665&code=2318" target="_blank">NoodleTools</a> -->
-										<!-- <a class="dropdown-item" href="https://digitalcommons.bard.edu/" target="_blank">Digital Commons</a>
-											<a class="dropdown-item" href="https://libguides.bard.edu/c.php?g=1125434&p=8209136">Borrowing</a>
-											<a class="dropdown-item" href="https://libguides.bard.edu/my-books-fines">Renew Books</a> -->
-									</div>
-								</li>
-								<li class="nav-item me-2 dropdown">
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="contact.php">Contact</a>
-										<a class="dropdown-item" href="hours.php">Hours</a>
-										<!-- <a class="dropdown-item" href="about.php">Welcome</a> -->
-										<a class="dropdown-item" href="collections.php">Collections</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/accessibility">Accessibility</a>
-										<a class="dropdown-item" href="https://libguides.bard.edu/student-jobs">Student Jobs FAQ</a>
-									</div>
-								</li>
-								<li class="nav-item me-2">
-									<a class="nav-link" href="https://libguides.bard.edu/fosl" target="_blank">Friends</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Account</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="https://librarysso.bard.edu/patroninfo">See My Library Account</a>
-										<a class="dropdown-item" href="https://bard.illiad.oclc.org/illiad/logon.html">Interlibrary Loan Account</a>
-									</div>
-								</li>
-								<li class="nav-item">
-									<a href="https://www.facebook.com/bardlibrary" class="facebook nav-link" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-								</li>
-								<li class="nav-item">
-									<a href="https://www.instagram.com/bardlibrary" class="instagram nav-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-								</li>
+								<?php
+								$results = fetchMenuItems('Search');
+								printDropMenu('Search', $results);
+
+								$results = fetchMenuItems('Help');
+								printDropMenu('Help', $results);
+
+								$results = fetchMenuItems('Services');
+								printDropMenu('Services', $results);
+
+								$results = fetchMenuItems('About');
+								printDropMenu('About', $results);
+
+								printMenuItem('https://libguides.bard.edu/fosl', 'Friends');
+
+								$results = fetchMenuItems('Account');
+								printDropMenu('Account', $results);
+
+								printSocialMenuItem('https://www.facebook.com/bardlibrary', 'facebook', 'fa-facebook-square');
+
+								printSocialMenuItem('https://www.instagram.com/bardlibrary', 'instagram', 'fa-instagram');
+								?>
 							</ul>
 							<div class="col-3">&nbsp;</div>
 						</nav>
@@ -177,26 +139,13 @@ class Template
 										845.758.7281
 									</div>
 								</div>
-								<div class="col-sm-4 mb-4">
-									<h2 class="h4">Quick Links</h2>
-									<ul>
-										<li><a href="contact.php">Contact Us</a></li>
-										<li><a href="https://inside.bard.edu/">Inside Bard</a></li>
-										<li><a href="https://www.bard.edu/arendtcollection/">Arendt Collection</a></li>
-										<li><a href="https://inside.bard.edu/learningcommons/">Learning Commons</a></li>
-										<li><a href="https://digitalcommons.bard.edu/">Digital Commons</a></li>
-										<li><a href="https://space.bard.edu/EMSWebApp/">Space Management</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-4 mb-4">
-									<h2 class="h4">Other Libraries</h2>
-									<ul>
-										<li><a href="https://ccs.bard.edu/research-center/">CCS Bard</a></li>
-										<li><a href="https://www.bgc.bard.edu/research/library.html">BGC Library</a></li>
-										<li><a href="https://www.levyinstitute.org/">Levy Library</a></li>
-										<li><a href="https://www.bard.edu/montgomeryplace/">Montgomery Place</a></li>
-									</ul>
-								</div>
+								<?php
+								$results = fetchMenuItems('Quick Links');
+								printFooterLinks('Quick Links', $results);
+
+								$results = fetchMenuItems('Other Libraries');
+								printFooterLinks('Other Libraries', $results);
+								?>
 							</div>
 						</div>
 					</div>

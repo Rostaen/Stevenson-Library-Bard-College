@@ -1,7 +1,7 @@
 <?php
 require_once("template.php");
 require_once('inc/connect.php');
-require_once('research-guides-functions.php');
+include_once('page-functions/research-guides-functions.php');
 // Setting up page information
 $page = new Template();
 $page->setTitle('Research Guides | Steven Library | Bard College');

@@ -1,23 +1,16 @@
 <?php
+
 require_once("template.php");
+require_once("page-functions/hours-functions.php");
+
 $page = new Template();
 $page->setTitle('Hours | Steven Library | Bard College');
 $page->setMetaDesc('View the operating hours of Bard College Library. Find the library\'s opening and closing times, including weekend hours and holiday schedules, to plan your visit for research, studying, or accessing library resources.');
 // print page header
 $page->open();
-function printHoursInfo($item)
-{
-	echo '<div class="col-6">' . $item . '</div>';
-}
-function printHoursBlock($title, $hoursArray)
-{
-	echo '<div class="mb-4"><h2>' . $title . '</h2><div class="row">';
-	for ($x = 0; $x < count($hoursArray); $x++)
-		printHoursInfo($hoursArray[$x]);
-	echo '</div></div>';
-}
-$regularHours = ["Sunday", "10a - 1a", "Monday", "8a - 1a", "Tuesday", "8a - 1a", "Wednesday", "8a - 1a", "Thursday", "8a - 1a", "Friday", "8a - 10p", "Saturday", "10a - 10p"];
-$referenceHours = ["Sunday", "12p - 5p", "Monday", "10a - 6p", "Tuesday", "10a - 6p", "Wednesday", "10a - 6p", "Thursday", "10a - 6p", "Friday", "10a - 4p", "Saturday", "N/A"];
+
+// Hours times have been moved to the hours-functions.php page
+
 ?>
 </header>
 <div class="mt-6 mb-1 bard-bt-boarder"></div>
